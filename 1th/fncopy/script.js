@@ -2,7 +2,7 @@ function copyObject(obj) {
     var newObj = {};
     for (var prop in obj) {
         if (typeof obj[prop] == 'object') {
-            newObj[prop] = cloneObject(obj[prop]);
+            newObj[prop] = copyObject(obj[prop]);
         } else {
             newObj[prop] = obj[prop];
         }
@@ -16,5 +16,5 @@ var phone = {
 };
 
 var newObject = copyObject(phone);
-newObject.quantity = 10;
+newObject.quantity = 12;
 document.write(newObject.brand + "<br />" + newObject.quantity);
