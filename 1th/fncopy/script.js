@@ -12,7 +12,7 @@ function copyObject(obj) {
 
 var phone = {
     brand: 'Samsung',
-    quantity: 5,
+    quantity: 5
 };
 
 var newObject = copyObject(phone);
