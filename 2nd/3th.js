@@ -21,7 +21,7 @@ var car = {
         return new Date().getFullYear() - this.dateRelease.getFullYear();
     },
     toJSON: function(){
-        return this.brand + this.model + ' ' + this.money + ' ' + this.dateRelease;
+        return this.brand + this.model + this.money + this.dateRelease;
     }
 };
 
