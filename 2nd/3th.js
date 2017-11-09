@@ -2,7 +2,7 @@ var car = {
     brand: prompt("Введите марку машины","BMW"),
     model: prompt("Введите модель машины", "x6"),
     money: prompt("Сколько у вас денег?", "120000"),
-    year: new Date(2017,08,08),
+    dateRelease: new Date(2015,06,12),
     moneyCount: function (){
         return this.money;
     },
@@ -14,15 +14,19 @@ var car = {
             return "Вы можете приобрести эту машину";
         }
     },
-    toString: function () {
-        return this.brand + ' ' + this.model + ' - ' + this.price();
+    toString: function (){
+        return 'Машина: ' + this.brand + ', модель: ' + this.model + ', цена: ' + this.money + '$ \n' + this.price();
     },
-    toNum: function () {
-        return 'Ваши деньги - ' + this.money.valueOf() + '$';
+    valueOf: function (){
+        return new Date().getFullYear() - this.dateRelease.getFullYear();
+    },
+    toJSON: function(){
+        return this.brand + this.model + ' ' + this.money + ' ' + this.dateRelease;
     }
-}
-var toJSON = JSON.stringify(car)
+};
 
-alert(car.toString());
-alert(car.toNum());
-alert(toJSON)
+var toJSON = JSON.stringify(car);
+
+alert (car.toString());
+alert ('На момент покупки машины, ей ' + Number(car) + ' года');
+alert(toJSON);
